@@ -12,7 +12,7 @@ A fun web game where you guess which meme has more page views on Know Your Meme.
 
 ## Features
 
-- 50+ popular memes from different eras (2001-2021)
+- 190+ popular memes from different eras (2001-2021)
 - Streak-based scoring system
 - High score saved locally in your browser
 - Responsive design for desktop and mobile
