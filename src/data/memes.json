@@ -94,7 +94,7 @@
       "id": "stonks",
       "name": "Stonks",
       "views": 18000000,
-      "imageUrl": "/images/memes/stonks.jpg",
+      "imageUrl": "/images/memes/stonks.png",
       "description": "Meme Man in front of rising stock graph",
       "year": 2017,
       "category": "Surreal"
@@ -346,7 +346,7 @@
       "id": "boardroom-meeting",
       "name": "Boardroom Meeting Suggestion",
       "views": 18500000,
-      "imageUrl": "/images/memes/boardroom-meeting.jpg",
+      "imageUrl": "/images/memes/boardroom-meeting.png",
       "description": "Boss throwing employee out window for bad suggestion",
       "year": 2014,
       "category": "Comic"
@@ -442,15 +442,6 @@
       "category": "Comic"
     },
     {
-      "id": "distracted-boyfriend-female",
-      "name": "Jealous Girlfriend",
-      "views": 10500000,
-      "imageUrl": "/images/memes/distracted-boyfriend-female.jpg",
-      "description": "Woman looking jealously at another woman",
-      "year": 2019,
-      "category": "Stock Photo"
-    },
-    {
       "id": "trollface",
       "name": "Trollface",
       "views": 42000000,
@@ -500,7 +491,7 @@
       "name": "Lenny Face",
       "views": 33000000,
       "imageUrl": "/images/memes/lenny-face.jpg",
-      "description": "Suggestive emoticon face ( ͡° ͜ʖ ͡°)",
+      "description": "Suggestive emoticon face ( \u00cd\u00a1\u00c2\u00b0 \u00cd\u0153\u00ca\u2013 \u00cd\u00a1\u00c2\u00b0)",
       "year": 2012,
       "category": "Emoticon"
     },
@@ -581,9 +572,9 @@
       "name": "Look of Disapproval",
       "views": 18500000,
       "imageUrl": "/images/memes/look-of-disapproval.jpg",
-      "description": "Disapproving emoticon face ಠ_ಠ",
+      "description": "Disapproving emoticon face \u00e0\u00b2\u00a0_\u00e0\u00b2\u00a0",
       "year": 2009,
-      "category": "Emoticon"
+      "category": "Reaction"
     },
     {
       "id": "ridiculously-photogenic-guy",
@@ -796,7 +787,7 @@
       "id": "cash-me-outside",
       "name": "Cash Me Outside",
       "views": 14000000,
-      "imageUrl": "/images/memes/cash-me-outside.jpg",
+      "imageUrl": "/images/memes/cash-me-outside.png",
       "description": "Danielle Bregoli's viral Dr. Phil moment",
       "year": 2017,
       "category": "Catchphrase"
@@ -841,7 +832,7 @@
       "id": "virgin-vs-chad",
       "name": "Virgin vs Chad",
       "views": 18000000,
-      "imageUrl": "/images/memes/virgin-vs-chad.jpg",
+      "imageUrl": "/images/memes/virgin-vs-chad.png",
       "description": "Contrasting insecure virgin with confident Chad",
       "year": 2017,
       "category": "Comparison"
@@ -958,7 +949,7 @@
       "id": "soyjak",
       "name": "Soyjak / Soy Boy Face",
       "views": 16500000,
-      "imageUrl": "/images/memes/soyjak.jpg",
+      "imageUrl": "/images/memes/soyjak.png",
       "description": "Open-mouthed excited face often mocked",
       "year": 2019,
       "category": "Wojak"
@@ -988,7 +979,7 @@
       "imageUrl": "/images/memes/weird-flex-but-ok.jpg",
       "description": "Response to unusual or humble brags",
       "year": 2018,
-      "category": "Catchphrase"
+      "category": "Reaction"
     },
     {
       "id": "shut-up-and-take-my-money",
@@ -1102,7 +1093,7 @@
       "id": "leonardo-dicaprio-cheers",
       "name": "Leonardo DiCaprio Cheers",
       "views": 17500000,
-      "imageUrl": "/images/memes/leonardo-dicaprio-cheers.jpg",
+      "imageUrl": "/images/memes/leonardo-dicaprio-cheers.png",
       "description": "Leo raising glass from The Great Gatsby",
       "year": 2013,
       "category": "Movie"
@@ -1111,7 +1102,7 @@
       "id": "oprah-you-get-a",
       "name": "Oprah You Get A",
       "views": 16000000,
-      "imageUrl": "/images/memes/oprah-you-get-a.jpg",
+      "imageUrl": "/images/memes/oprah-you-get-a.gif",
       "description": "Oprah giving everyone something",
       "year": 2010,
       "category": "TV Show"
@@ -1210,7 +1201,7 @@
       "id": "surprised-tom",
       "name": "Surprised Tom",
       "views": 14000000,
-      "imageUrl": "/images/memes/surprised-tom.jpg",
+      "imageUrl": "/images/memes/surprised-tom.png",
       "description": "Tom from Tom and Jerry with shocked face",
       "year": 2019,
       "category": "Cartoon"
@@ -1252,19 +1243,10 @@
       "category": "Sports"
     },
     {
-      "id": "young-michael-scott",
-      "name": "Young Michael Scott Shaking Hands",
-      "views": 11000000,
-      "imageUrl": "/images/memes/young-michael-scott.jpg",
-      "description": "Office scene about when something started",
-      "year": 2019,
-      "category": "TV Show"
-    },
-    {
       "id": "grandma-finds-the-internet",
       "name": "Grandma Finds The Internet",
       "views": 12500000,
-      "imageUrl": "/images/memes/grandma-finds-the-internet.jpg",
+      "imageUrl": "/images/memes/grandma-finds-the-internet.png",
       "description": "Elderly woman confused by technology",
       "year": 2012,
       "category": "Image Macro"
@@ -1301,9 +1283,9 @@
       "name": "Oh No It's Retarded",
       "views": 11000000,
       "imageUrl": "/images/memes/oh-no-its-retarded.jpg",
-      "description": "Dog looking at something disappointing",
+      "description": "Webcomic of stick figure discovering small dog saying dumb things",
       "year": 2016,
-      "category": "Animal"
+      "category": "Webcomic"
     },
     {
       "id": "squidward-window",
@@ -1318,7 +1300,7 @@
       "id": "uno-reverse-card",
       "name": "UNO Reverse Card",
       "views": 15000000,
-      "imageUrl": "/images/memes/uno-reverse-card.jpg",
+      "imageUrl": "/images/memes/uno-reverse-card.png",
       "description": "Turning someone's argument back on them",
       "year": 2018,
       "category": "Gaming"
@@ -1336,7 +1318,7 @@
       "id": "american-chopper-argument",
       "name": "American Chopper Argument",
       "views": 14000000,
-      "imageUrl": "/images/memes/american-chopper-argument.jpg",
+      "imageUrl": "/images/memes/american-chopper-argument.png",
       "description": "Father and son arguing across multiple panels",
       "year": 2018,
       "category": "TV Show"
@@ -1346,7 +1328,7 @@
       "name": "Polish Jerry",
       "views": 10000000,
       "imageUrl": "/images/memes/polish-jerry.jpg",
-      "description": "Jerry mouse looking menacing with gun",
+      "description": "Jerry with half-open eyes expressing confusion",
       "year": 2019,
       "category": "Cartoon"
     },
@@ -1363,7 +1345,7 @@
       "id": "sleeping-shaq",
       "name": "Sleeping Shaq",
       "views": 11500000,
-      "imageUrl": "/images/memes/sleeping-shaq.jpg",
+      "imageUrl": "/images/memes/sleeping-shaq.png",
       "description": "Shaq sleeping vs Shaq alert comparison",
       "year": 2018,
       "category": "Sports"
@@ -1372,7 +1354,7 @@
       "id": "thomas-had-never-seen",
       "name": "Thomas Had Never Seen Such BS",
       "views": 12000000,
-      "imageUrl": "/images/memes/thomas-had-never-seen.jpg",
+      "imageUrl": "/images/memes/thomas-had-never-seen.png",
       "description": "Thomas the Tank Engine looking angry",
       "year": 2018,
       "category": "Cartoon"
@@ -1426,7 +1408,7 @@
       "id": "men-will-literally",
       "name": "Men Will Literally",
       "views": 9500000,
-      "imageUrl": "/images/memes/men-will-literally.jpg",
+      "imageUrl": "/images/memes/men-will-literally.png",
       "description": "Men avoiding therapy by doing extreme things",
       "year": 2019,
       "category": "Text"
@@ -1453,7 +1435,7 @@
       "id": "cat-lawyer",
       "name": "Cat Lawyer",
       "views": 13500000,
-      "imageUrl": "/images/memes/cat-lawyer.jpg",
+      "imageUrl": "/images/memes/cat-lawyer.png",
       "description": "Lawyer stuck with cat filter on Zoom",
       "year": 2021,
       "category": "Video"
@@ -1480,7 +1462,7 @@
       "id": "vince-mcmahon",
       "name": "Vince McMahon Reaction",
       "views": 14500000,
-      "imageUrl": "/images/memes/vince-mcmahon.jpg",
+      "imageUrl": "/images/memes/vince-mcmahon.png",
       "description": "WWE owner getting increasingly excited",
       "year": 2019,
       "category": "Multi-Panel"
@@ -1489,7 +1471,7 @@
       "id": "hold-up",
       "name": "Hold Up Wait A Minute",
       "views": 12000000,
-      "imageUrl": "/images/memes/hold-up.jpg",
+      "imageUrl": "/images/memes/hold-up.png",
       "description": "Stopping to process something unexpected",
       "year": 2018,
       "category": "Reaction"
@@ -1552,7 +1534,7 @@
       "id": "the-office-handshake",
       "name": "The Office Handshake",
       "views": 11000000,
-      "imageUrl": "/images/memes/the-office-handshake.jpg",
+      "imageUrl": "/images/memes/the-office-handshake.png",
       "description": "Michael and Jim shaking hands The Office",
       "year": 2019,
       "category": "TV Show"
@@ -1606,7 +1588,7 @@
       "id": "finally-inner-peace",
       "name": "Finally Inner Peace",
       "views": 10500000,
-      "imageUrl": "/images/memes/finally-inner-peace.jpg",
+      "imageUrl": "/images/memes/finally-inner-peace.png",
       "description": "Master Oogway achieving peace",
       "year": 2020,
       "category": "Movie"
@@ -1637,15 +1619,6 @@
       "description": "Raccoon dancing from TikTok",
       "year": 2021,
       "category": "TikTok"
-    },
-    {
-      "id": "drakepost-prefer",
-      "name": "Drake Prefer Handshake",
-      "views": 10000000,
-      "imageUrl": "/images/memes/drakepost-prefer.jpg",
-      "description": "Drake pointing approvingly at preferred thing",
-      "year": 2019,
-      "category": "Exploitable"
     },
     {
       "id": "amogus",
@@ -1712,5 +1685,5 @@
     }
   ],
   "lastUpdated": "2025-12-25",
-  "totalMemes": 200
+  "totalMemes": 187
 }
