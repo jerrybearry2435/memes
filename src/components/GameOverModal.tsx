@@ -2,6 +2,11 @@ import { useState } from 'react';
 import type { GameOverModalProps } from '../types';
 import styles from './GameOverModal.module.css';
 
+function generateRandomName(): string {
+  const code = Math.random().toString(36).substring(2, 8).toUpperCase();
+  return `Player-${code}`;
+}
+
 export function GameOverModal({
   finalScore,
   highScore,
@@ -17,9 +22,10 @@ export function GameOverModal({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (playerName.trim() && !isSubmitting) {
+    if (!isSubmitting) {
       setIsSubmitting(true);
-      onSubmitScore(playerName.trim());
+      const nameToSubmit = playerName.trim() || generateRandomName();
+      onSubmitScore(nameToSubmit);
     }
   };
 
@@ -62,21 +68,21 @@ export function GameOverModal({
 
         {canSubmitScore && (
           <form className={styles.nameForm} onSubmit={handleSubmit}>
-            <label className={styles.nameLabel}>Enter your name for the leaderboard</label>
+            <label className={styles.nameLabel}>Enter your name for the leaderboard (optional)</label>
             <div className={styles.nameInputGroup}>
               <input
                 type="text"
                 className={styles.nameInput}
                 value={playerName}
                 onChange={(e) => setPlayerName(e.target.value)}
-                placeholder="Your name"
+                placeholder="Your name (or leave blank)"
                 maxLength={20}
                 autoFocus
               />
               <button
                 type="submit"
                 className={styles.submitButton}
-                disabled={!playerName.trim() || isSubmitting}
+                disabled={isSubmitting}
               >
                 Submit
               </button>
