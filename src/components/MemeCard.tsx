@@ -86,7 +86,7 @@ export function MemeCard({
           </div>
         )}
 
-        {!isReference && showViewCount && (
+        {!isReference && showViewCount && revealResult && (
           <div className={styles.vsLabel}>
             {revealResult === 'correct' ? 'Correct!' : 'Wrong!'}
           </div>
