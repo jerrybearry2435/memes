@@ -39,8 +39,8 @@ export function GameContainer({ memes }: GameContainerProps) {
   }, [state.phase]);
 
   const handleSubmitScore = useCallback(
-    (playerName: string) => {
-      const entry = addEntry(playerName, state.currentStreak);
+    async (playerName: string) => {
+      const entry = await addEntry(playerName, state.currentStreak);
       if (entry) {
         setCurrentGameEntry(entry);
         setHasSubmittedScore(true);

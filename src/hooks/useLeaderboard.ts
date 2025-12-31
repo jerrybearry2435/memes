@@ -1,14 +1,22 @@
 import { useState, useCallback, useEffect } from 'react';
+import {
+  collection,
+  addDoc,
+  query,
+  orderBy,
+  limit,
+  onSnapshot,
+  serverTimestamp,
+  Timestamp,
+} from 'firebase/firestore';
+import { db } from '../lib/firebase';
 import type { LeaderboardEntry } from '../types';
 
-const STORAGE_KEY = 'meme-higher-lower-leaderboard';
 const MAX_ENTRIES = 10;
 const MAX_NAME_LENGTH = 20;
 const MAX_REASONABLE_SCORE = 176; // Total number of memes in the game
 
-function generateId(): string {
-  return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-}
+const leaderboardCollection = collection(db, 'leaderboard');
 
 function sanitizeName(name: string): string {
   return name
@@ -26,80 +34,82 @@ function isValidScore(score: number): boolean {
   );
 }
 
-function loadLeaderboard(): LeaderboardEntry[] {
-  if (typeof window === 'undefined') return [];
-  try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (!stored) return [];
-    const parsed = JSON.parse(stored);
-    if (!Array.isArray(parsed)) return [];
-    // Validate and filter entries
-    return parsed
-      .filter(
-        (entry): entry is LeaderboardEntry =>
-          entry &&
-          typeof entry.id === 'string' &&
-          typeof entry.playerName === 'string' &&
-          typeof entry.score === 'number' &&
-          typeof entry.timestamp === 'number' &&
-          isValidScore(entry.score)
-      )
-      .slice(0, MAX_ENTRIES);
-  } catch {
-    return [];
-  }
-}
-
-function saveLeaderboard(entries: LeaderboardEntry[]): void {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(entries.slice(0, MAX_ENTRIES)));
-  } catch {
-    // localStorage might not be available or full
-  }
-}
-
 export function useLeaderboard() {
-  const [entries, setEntries] = useState<LeaderboardEntry[]>(loadLeaderboard);
+  const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
   const [lastAddedEntry, setLastAddedEntry] = useState<LeaderboardEntry | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Sync to localStorage when entries change
+  // Subscribe to real-time leaderboard updates
   useEffect(() => {
-    saveLeaderboard(entries);
-  }, [entries]);
+    const q = query(
+      leaderboardCollection,
+      orderBy('score', 'desc'),
+      orderBy('timestamp', 'asc'),
+      limit(MAX_ENTRIES)
+    );
 
-  const addEntry = useCallback((playerName: string, score: number): LeaderboardEntry | null => {
-    // Validate inputs
-    if (!isValidScore(score)) {
-      console.warn('Invalid score rejected:', score);
-      return null;
-    }
+    const unsubscribe = onSnapshot(
+      q,
+      (snapshot) => {
+        const leaderboardEntries: LeaderboardEntry[] = snapshot.docs.map((doc) => {
+          const data = doc.data();
+          return {
+            id: doc.id,
+            playerName: data.playerName,
+            score: data.score,
+            timestamp: data.timestamp instanceof Timestamp
+              ? data.timestamp.toMillis()
+              : Date.now(),
+          };
+        });
+        setEntries(leaderboardEntries);
+        setIsLoading(false);
+      },
+      (error) => {
+        console.error('Error fetching leaderboard:', error);
+        setIsLoading(false);
+      }
+    );
 
-    const sanitizedName = sanitizeName(playerName);
-    if (!sanitizedName) {
-      return null;
-    }
-
-    const newEntry: LeaderboardEntry = {
-      id: generateId(),
-      playerName: sanitizedName,
-      score,
-      timestamp: Date.now(),
-    };
-
-    setEntries((prev) => {
-      const updated = [...prev, newEntry]
-        // Sort by score (desc), then by timestamp (asc for ties - earlier is better)
-        .sort((a, b) => {
-          if (b.score !== a.score) return b.score - a.score;
-          return a.timestamp - b.timestamp;
-        })
-        .slice(0, MAX_ENTRIES);
-      return updated;
-    });
-
-    setLastAddedEntry(newEntry);
-    return newEntry;
+    return () => unsubscribe();
   }, []);
+
+  const addEntry = useCallback(
+    async (playerName: string, score: number): Promise<LeaderboardEntry | null> => {
+      // Validate inputs
+      if (!isValidScore(score)) {
+        console.warn('Invalid score rejected:', score);
+        return null;
+      }
+
+      const sanitizedName = sanitizeName(playerName);
+      if (!sanitizedName) {
+        return null;
+      }
+
+      try {
+        const docRef = await addDoc(leaderboardCollection, {
+          playerName: sanitizedName,
+          score,
+          timestamp: serverTimestamp(),
+        });
+
+        const newEntry: LeaderboardEntry = {
+          id: docRef.id,
+          playerName: sanitizedName,
+          score,
+          timestamp: Date.now(),
+        };
+
+        setLastAddedEntry(newEntry);
+        return newEntry;
+      } catch (error) {
+        console.error('Error adding leaderboard entry:', error);
+        return null;
+      }
+    },
+    []
+  );
 
   const getPlayerRank = useCallback(
     (entryId: string): number | null => {
@@ -119,22 +129,12 @@ export function useLeaderboard() {
     [entries]
   );
 
-  const clearLeaderboard = useCallback(() => {
-    setEntries([]);
-    setLastAddedEntry(null);
-    try {
-      localStorage.removeItem(STORAGE_KEY);
-    } catch {
-      // Ignore
-    }
-  }, []);
-
   return {
     entries,
     lastAddedEntry,
     addEntry,
     getPlayerRank,
     isScoreWorthy,
-    clearLeaderboard,
+    isLoading,
   };
 }
